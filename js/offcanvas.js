@@ -46,6 +46,8 @@ var scrollTo = function (section) {
 	main.animate({
 		scrollTop: distance
 	}, 500);
+
+	updateSection(section);
 }
 
 		/**
@@ -88,10 +90,10 @@ var scrollTo = function (section) {
 		* Navigate up page
 		*/
 		var nav_up = function(){
-			var prev = navbar.find('a.active').prev();
-			if(prev.size() != 0){
-				prev[0].click();
-			}
+			var prev = $(currentSection).prev();
+
+			if(prev.size() != 0)
+				scrollTo(prev);
 		}
 
 		/**
@@ -100,39 +102,25 @@ var scrollTo = function (section) {
 		var nav_down = function(){
 
 			var next = $(currentSection).next();
-			var height = 0;
 
-			$('.section').each(function(){
-				
-				if($(this).index() == next.index())
-					return false;
+			if(next.size() != 0)
+				scrollTo(next);
 
-				height = height + $(this).height();
-				
-			});
+		}
 
-			if(next.size() != 0){
-				main.animate({
-					scrollTop: height
-				}, 500);
-				updateSection(next);			}
+		var updateSection = function (section) {
+			currentSection = '#' + section.attr('id');
+			history.replaceState(null, null, currentSection);
+		}
+
+		updateSection($('.section:first'));
+		refreshNavbar(currentSection);
 
 
-			}
-
-			var updateSection = function (section) {
-				currentSection = '#' + section.attr('id');
-				history.replaceState(null, null, currentSection);
-			}
-
-			updateSection($('.section:first'));
-			refreshNavbar(currentSection);
+	};
 
 
-		};
-
-
-	});
+});
 
 
 
