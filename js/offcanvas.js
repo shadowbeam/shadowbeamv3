@@ -24,6 +24,10 @@ $(document).ready(function () {
 			e.stopImmediatePropagation();
 			
 			scrollTo($('' + $(this).attr('href')));
+			setTimeout(function() {
+
+				$('[data-toggle=open-nav]').click();
+			}, 550);
 
 		});
 
