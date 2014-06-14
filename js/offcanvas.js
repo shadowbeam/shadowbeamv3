@@ -19,13 +19,34 @@ $(document).ready(function () {
 		$('.nav-down').click(function(e){ e.preventDefault(); nav_down() });
 
 
+		$('.navbar a').click(function(e){
+			e.preventDefault();
+			e.stopImmediatePropagation();
+			
+			scrollTo($('' + $(this).attr('href')));
+
+		});
+
 		// main.bind('scrollstop', function(e){
 		// 	console.log('stop');
 		// });
 
 main.on( "scrollstop", function( event ) { 
 	console.log('stop');
+
 } );
+
+
+var scrollTo = function (section) {
+	var scrollTop     = main.scrollTop(),
+	offset = section.offset().top,
+	distance = (offset + scrollTop);
+
+	console.log(distance);
+	main.animate({
+		scrollTop: distance
+	}, 500);
+}
 
 		/**
 		* What happens when scrolling
