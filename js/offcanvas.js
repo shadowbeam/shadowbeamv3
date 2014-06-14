@@ -37,6 +37,20 @@ main.on( "scrollstop", function( event ) {
 } );
 
 
+document.onkeydown = function(e) {
+	e.preventDefault();
+	e.stopImmediatePropagation();
+	e = e || window.event;
+
+	if (e.keyCode == '38') {
+		nav_up();
+	}
+	else if (e.keyCode == '40') {
+		nav_down();
+	}
+}
+
+
 var scrollTo = function (section) {
 	var scrollTop     = main.scrollTop(),
 	offset = section.offset().top,
@@ -56,14 +70,16 @@ var scrollTo = function (section) {
 		var scrolling = function(){
 
 
+
 			$('.section').each(function () {
 				var distance = $(this).offset().top;
 				var height = $(this).height();
 				var bottom = distance + height;
 				var section = '#' + $(this).attr('id');
 
+
 				if (sectionVisible(distance, bottom, section)) {
-					//currentSection = section;
+					updateSection($(this));
 					refreshNavbar(section);			
 					return false;
 				}
@@ -83,7 +99,7 @@ var scrollTo = function (section) {
 		*/
 		var sectionVisible = function(distance, bottom, section){
 			var lim =  10;
-			return ((distance < lim && distance > -1 * lim || bottom < lim && bottom > -1 * lim) && currentSection != section);
+			return (lim == distance && currentSection != section);
 		}
 
 		/**
