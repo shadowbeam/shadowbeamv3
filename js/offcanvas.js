@@ -42,14 +42,17 @@ main.on( "scrollstop", function( event ) {
 
 
 document.onkeydown = function(e) {
-	e.preventDefault();
-	e.stopImmediatePropagation();
+
 	e = e || window.event;
 
 	if (e.keyCode == '38') {
+		e.preventDefault();
+		e.stopImmediatePropagation();
 		nav_up();
 	}
 	else if (e.keyCode == '40') {
+		e.preventDefault();
+		e.stopImmediatePropagation();
 		nav_down();
 	}
 }

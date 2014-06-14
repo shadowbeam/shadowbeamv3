@@ -18,11 +18,6 @@ body {
   background-color: #fff;
 }
 
-html, body{
-  height: 100%;
-  overflow: hidden;
-}
-
 
 h1{
   text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.46);
@@ -80,7 +75,7 @@ a.active{
 * @group Main body
 */
 
-#main{
+body{
   overflow-y: scroll;
   overflow-x: hidden;
   position: absolute;
@@ -92,12 +87,12 @@ a.active{
   padding-left: 75px;
 }
 
-#main section{
+ section{
   padding: 0 <?php echo $pad ?>px;
   min-height: 100%;
 }
 
-#main section::after{
+ section::after{
   content: ".";
   display: block;
   height: 0;
@@ -105,7 +100,7 @@ a.active{
   visibility: hidden;
 }
 
-#main section .full-width{
+ section .full-width{
   margin-left: -<?php echo $pad ?>px;
   margin-right: -<?php echo $pad ?>px;
   padding-left: <?php echo $pad * 2 ?>px;
@@ -116,7 +111,7 @@ a.active{
 * @group Navigation
 */
 .sidebar{
-  position: relative;
+  position: fixed;
   top: 0;
   left: 0;
   margin-right: 20px;
