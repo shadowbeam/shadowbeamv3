@@ -183,7 +183,7 @@ body{
 * @group Animation
 */
 .navbar,
-#main{
+body{
   -webkit-transition: all .25s ease-out;
   -moz-transition: all .25s ease-out;
   transition: all .25s ease-out;
@@ -192,7 +192,7 @@ body{
 /**
 * @group Open Sidebar
 */
-body.open-nav #main{
+body.open-nav{
   padding-left: <?php echo $sidebar_width;?>px;
 }
 
@@ -306,7 +306,7 @@ section#section-home .jumbotron{
     bottom: 0;
   }
 
-  #main{
+  body{
     padding-left: 0;
     padding-top: 50px;
   }
@@ -314,7 +314,7 @@ section#section-home .jumbotron{
 
   body.open-nav #main {
     padding-left: 0px;
-    padding-top: 50px;
+    padding-top: 500px;
   }
 
   body.open-nav .navbar {
@@ -331,10 +331,7 @@ section#section-home .jumbotron{
     width:  100%;
   }
 
-  body.open-nav #main{
-    padding-left: 0px;
-    padding-top: 500px;
-  }
+
 
 
 }

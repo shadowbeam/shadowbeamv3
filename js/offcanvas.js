@@ -1,6 +1,7 @@
 $(document).ready(function () {
 
-	$('[data-toggle=open-nav]').click(function () {
+	$('[data-toggle=open-nav]').click(function (e) {
+		e.preventDefault();
 		$('body').toggleClass('open-nav');
 	});
 
@@ -11,8 +12,7 @@ $(document).ready(function () {
 
 		var currentSection = window.location.hash;
 		var navbar = $('#navbar');
-		var main = $('#main');
-
+		var main = $('body');
 
 		main.scroll(function () {	scrolling() });
 		$('.nav-up').click(function(e){ e.preventDefault(); nav_up() });
@@ -24,10 +24,10 @@ $(document).ready(function () {
 			e.stopImmediatePropagation();
 			
 			scrollTo($('' + $(this).attr('href')));
-			setTimeout(function() {
+			// setTimeout(function() {
 
-				$('[data-toggle=open-nav]').click();
-			}, 550);
+			// 	$('[data-toggle=open-nav]').click();
+			// }, 550);
 
 		});
 
@@ -59,9 +59,8 @@ document.onkeydown = function(e) {
 
 
 var scrollTo = function (section) {
-	var scrollTop     = main.scrollTop(),
-	offset = section.offset().top,
-	distance = (offset + scrollTop);
+
+	var distance = section.offset().top;
 
 	console.log(distance);
 	main.animate({
@@ -75,8 +74,6 @@ var scrollTo = function (section) {
 		* What happens when scrolling
 		*/
 		var scrolling = function(){
-
-
 
 			$('.section').each(function () {
 				var distance = $(this).offset().top;
@@ -113,7 +110,7 @@ var scrollTo = function (section) {
 		* Navigate up page
 		*/
 		var nav_up = function(){
-			var prev = $(currentSection).prev();
+			var prev = $(currentSection).prev('section');
 
 			if(prev.size() != 0)
 				scrollTo(prev);
@@ -124,7 +121,7 @@ var scrollTo = function (section) {
 		*/
 		var nav_down = function(){
 
-			var next = $(currentSection).next();
+			var next = $(currentSection).next('section');
 
 			if(next.size() != 0)
 				scrollTo(next);
