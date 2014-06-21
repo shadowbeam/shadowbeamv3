@@ -54,6 +54,7 @@ $(document).ready(function () {
 		var navbar = $('#navbar');
 		var main = $('body');
 		var section_dir = new Array();
+		var autoScrolling = false;
 
 		var throttled = throttle(function(){scrolling()}, 100);
 		$(document).scroll(throttled);
@@ -149,13 +150,17 @@ var updateCurrentSections = function(){
  * Scroll to a specific section
  */
  var scrollTo = function (section) {
-
+ 	autoScrolling = true;
  	var distance = section.offset().top;
 
  	console.log(distance);
  	main.animate({
  		scrollTop: distance
  	}, 500);
+
+ 	setTimeout(function() {
+ 		autoScrolling = false;
+ 	}, 550);
 
  	updateCurrentSection(section);
  }
@@ -165,7 +170,7 @@ var updateCurrentSections = function(){
 		*/
 		var scrolling = function(){
 
-			if(!onScreen(section_dir[currentSection])){
+			if(!autoScrolling && !onScreen(section_dir[currentSection])){
 
 				for (var o in section_dir) {
 					var value = section_dir[o];
