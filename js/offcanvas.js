@@ -5,6 +5,15 @@ $(document).ready(function () {
 		$('body').toggleClass('open-nav');
 	});
 
+	/* Resize event */
+	$(window).resize(function() {
+		if(this.resizeTO) clearTimeout(this.resizeTO);
+		this.resizeTO = setTimeout(function() {
+			$(this).trigger('resizeEnd');
+			console.log('resizeEnd');
+		}, 500);
+	});
+
 	/**
 	* Controls the navigation
 	*/
@@ -13,8 +22,13 @@ $(document).ready(function () {
 		var currentSection = window.location.hash;
 		var navbar = $('#navbar');
 		var main = $('body');
+		var section_dir = [];
 
-		main.scroll(function () {	scrolling() });
+
+		$(document).on('scroll', function (e){
+			scrolling()
+		});
+
 		$('.nav-up').click(function(e){ e.preventDefault(); nav_up() });
 		$('.nav-down').click(function(e){ e.preventDefault(); nav_down() });
 
@@ -29,13 +43,13 @@ $(document).ready(function () {
 			// 	$('[data-toggle=open-nav]').click();
 			// }, 550);
 
-		});
+	});
 
 		// main.bind('scrollstop', function(e){
 		// 	console.log('stop');
 		// });
 
-main.on( "scrollstop", function( event ) { 
+$(document).on( "scrollstop", function( event ) { 
 	console.log('stop');
 
 } );
@@ -58,17 +72,43 @@ document.onkeydown = function(e) {
 }
 
 
-var scrollTo = function (section) {
+var setupSections = function(){
+	$('.section').each(function () {
+		var newSection = new Section($(this), $(this).offset().top, $(this).height().y )
+		var id = '#' + $(this).attr('id');
 
-	var distance = section.offset().top;
+		section_dir[id] = newSection;
 
-	console.log(distance);
-	main.animate({
-		scrollTop: distance
-	}, 500);
-
-	updateSection(section);
+	});
 }
+
+$(window).on('resizeEnd', function() {
+	updateSections();
+});
+
+var updateSections = function(){
+	$.each(section_dir, function(key, value) {
+		var section = value.section;
+		value.height = section.height();
+		value.offset = section.offset().top;
+	});
+
+}
+
+/**
+ * Scroll to a specific section
+ */
+ var scrollTo = function (section) {
+
+ 	var distance = section.offset().top;
+
+ 	console.log(distance);
+ 	main.animate({
+ 		scrollTop: distance
+ 	}, 500);
+
+ 	updateSection(section);
+ }
 
 		/**
 		* What happens when scrolling
@@ -76,17 +116,14 @@ var scrollTo = function (section) {
 		var scrolling = function(){
 
 			$('.section').each(function () {
-				var distance = $(this).offset().top;
-				var height = $(this).height();
-				var bottom = distance + height;
-				var section = '#' + $(this).attr('id');
 
+				section_dir['#' + $(this).attr('id')] = $(this);
 
-				if (sectionVisible(distance, bottom, section)) {
-					updateSection($(this));
-					refreshNavbar(section);			
-					return false;
-				}
+				// if (section != currentSection && $(this).visible( true )) {
+				// 	updateSection($(this));
+				// 	refreshNavbar(section);			
+				// 	return false;
+				// }
 			});
 		}
 
@@ -133,6 +170,18 @@ var scrollTo = function (section) {
 			history.replaceState(null, null, currentSection);
 		}
 
+		
+
+		/* 
+		* Section Object 
+		*/
+		function Section(obj, offset, height) {
+			this.obj = obj;
+			this.offset = offset;
+			this.height = height;
+		}
+
+		setupSections();
 		updateSection($('.section:first'));
 		refreshNavbar(currentSection);
 
