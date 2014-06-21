@@ -1,9 +1,34 @@
 $(document).ready(function () {
 
-	$('[data-toggle=open-nav]').click(function (e) {
-		e.preventDefault();
-		$('body').toggleClass('open-nav');
-	});
+
+	/* http://documentcloud.github.io/underscore/#throttle */
+	throttle = function(func, wait, options) {
+		var context, args, result;
+		var timeout = null;
+		var previous = 0;
+		options || (options = {});
+		var later = function() {
+			previous = new Date;
+			timeout = null;
+			result = func.apply(context, args);
+		};
+		return function() {
+			var now = new Date;
+			if (!previous && options.leading === false) previous = now;
+			var remaining = wait - (now - previous);
+			context = this;
+			args = arguments;
+			if (remaining <= 0) {
+				clearTimeout(timeout);
+				timeout = null;
+				previous = now;
+				result = func.apply(context, args);
+			} else if (!timeout && options.trailing !== false) {
+				timeout = setTimeout(later, remaining);
+			}
+			return result;
+		};
+	};
 
 	/* Resize event */
 	$(window).resize(function() {
@@ -19,31 +44,43 @@ $(document).ready(function () {
 	*/
 	var navigation = new function() {
 
+		$('[data-toggle=open-nav]').click(function (e) {
+			e.preventDefault();
+			$('body').toggleClass('open-nav');
+			updateCurrentSections
+		});
+
 		var currentSection = window.location.hash;
 		var navbar = $('#navbar');
 		var main = $('body');
-		var section_dir = [];
+		var section_dir = new Array();
+
+		var throttled = throttle2(function(){scrolling()}, 100);
+		$(document).scroll(throttled);
 
 
-		$(document).on('scroll', function (e){
-			scrolling()
-		});
+	// 	$(document).on('scroll', function (e){
 
-		$('.nav-up').click(function(e){ e.preventDefault(); nav_up() });
-		$('.nav-down').click(function(e){ e.preventDefault(); nav_down() });
+	// 		console.log('scrolling');
+
+	// 	//	scrolling()
+	// });
+
+$('.nav-up').click(function(e){ e.preventDefault(); nav_up() });
+$('.nav-down').click(function(e){ e.preventDefault(); nav_down() });
 
 
-		$('.navbar a').click(function(e){
-			e.preventDefault();
-			e.stopImmediatePropagation();
-			
-			scrollTo($('' + $(this).attr('href')));
+$('.navbar a').click(function(e){
+	e.preventDefault();
+	e.stopImmediatePropagation();
+
+	scrollTo($('' + $(this).attr('href')));
 			// setTimeout(function() {
 
 			// 	$('[data-toggle=open-nav]').click();
 			// }, 550);
 
-	});
+});
 
 		// main.bind('scrollstop', function(e){
 		// 	console.log('stop');
@@ -51,8 +88,20 @@ $(document).ready(function () {
 
 $(document).on( "scrollstop", function( event ) { 
 	console.log('stop');
+	
+
+//	scrolling();
+
 
 } );
+
+/**
+* Is a Section object on screen
+*/
+var onScreen = function(section){
+	var top = $(document).scrollTop();
+	return(top >= section.offset && top <= section.offset + section.height)
+}
 
 
 document.onkeydown = function(e) {
@@ -74,24 +123,25 @@ document.onkeydown = function(e) {
 
 var setupSections = function(){
 	$('.section').each(function () {
-		var newSection = new Section($(this), $(this).offset().top, $(this).height().y )
 		var id = '#' + $(this).attr('id');
+		var newSection = new Section($(this), $(this).offset().top, $(this).height(), id )
 
-		section_dir[id] = newSection;
+		section_dir[id.toString()] = newSection;
 
 	});
 }
 
 $(window).on('resizeEnd', function() {
-	updateSections();
+	updateCurrentSections();
 });
 
-var updateSections = function(){
-	$.each(section_dir, function(key, value) {
-		var section = value.section;
-		value.height = section.height();
-		value.offset = section.offset().top;
-	});
+var updateCurrentSections = function(){
+	for (var o in section_dir) {
+		var value = section_dir[o];
+
+		value.height = value.section.height();
+		value.offset = value.section.offset().top;
+	}
 
 }
 
@@ -107,7 +157,7 @@ var updateSections = function(){
  		scrollTop: distance
  	}, 500);
 
- 	updateSection(section);
+ 	updateCurrentSection(section);
  }
 
 		/**
@@ -115,16 +165,18 @@ var updateSections = function(){
 		*/
 		var scrolling = function(){
 
-			$('.section').each(function () {
+			if(!onScreen(section_dir[currentSection])){
 
-				section_dir['#' + $(this).attr('id')] = $(this);
+				for (var o in section_dir) {
+					var value = section_dir[o];
 
-				// if (section != currentSection && $(this).visible( true )) {
-				// 	updateSection($(this));
-				// 	refreshNavbar(section);			
-				// 	return false;
-				// }
-			});
+					if(value.id != currentSection && onScreen(value)){
+						updateCurrentSection(value.obj);
+						return false;
+					}
+				}
+
+			}
 		}
 
 		/**
@@ -165,7 +217,10 @@ var updateSections = function(){
 
 		}
 
-		var updateSection = function (section) {
+		/**
+		* Update the current section
+		*/
+		var updateCurrentSection = function (section) {
 			currentSection = '#' + section.attr('id');
 			history.replaceState(null, null, currentSection);
 		}
@@ -175,14 +230,15 @@ var updateSections = function(){
 		/* 
 		* Section Object 
 		*/
-		function Section(obj, offset, height) {
+		function Section(obj, offset, height, id) {
 			this.obj = obj;
 			this.offset = offset;
 			this.height = height;
+			this.id = id;
 		}
 
 		setupSections();
-		updateSection($('.section:first'));
+		updateCurrentSection($('.section:first'));
 		refreshNavbar(currentSection);
 
 
