@@ -55,7 +55,7 @@ $(document).ready(function () {
 		var main = $('body');
 		var section_dir = new Array();
 
-		var throttled = throttle2(function(){scrolling()}, 100);
+		var throttled = throttle(function(){scrolling()}, 100);
 		$(document).scroll(throttled);
 
 
@@ -223,6 +223,7 @@ var updateCurrentSections = function(){
 		var updateCurrentSection = function (section) {
 			currentSection = '#' + section.attr('id');
 			history.replaceState(null, null, currentSection);
+			refreshNavbar(currentSection);
 		}
 
 		
@@ -239,7 +240,7 @@ var updateCurrentSections = function(){
 
 		setupSections();
 		updateCurrentSection($('.section:first'));
-		refreshNavbar(currentSection);
+		
 
 
 	};
