@@ -63,6 +63,14 @@ a.active{
   color: #007bb6;
 }
 
+.social a .icon-lastfm2:hover{
+  color: #c3000d;
+}
+
+.social a .icon-spotify:hover{
+  color: #7ab800;
+}
+
 .btn{
   display: block;
 }
