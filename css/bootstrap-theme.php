@@ -37,38 +37,65 @@ a.active{
   text-shadow: 0 0 25px #11ABC5;
 }
 
+.social{
+  overflow: hidden;
+  height: 15%;
+}
+
 .social a{
   font-size: 100px;
+
 }
 
 .social div{
   text-align: center;
+
 }
 .social a:hover{
   text-decoration: none;
   opacity: 1;
 }
 
-.social a .icon-twitter2:hover{
+.social a .icon-twitter:hover{
   color: #00aced;
 }
-.social a .icon-facebook2:hover{
+.social a .icon-facebook:hover{
   color: #3b5998;
 }
-.social a .icon-googleplus2:hover{
+.social a .icon-googleplus:hover{
   color: #d34836;
 }
 
-.social a .icon-linkedin2:hover{
+.social a .icon-linkedin:hover{
   color: #007bb6;
 }
 
-.social a .icon-lastfm2:hover{
+.social a .icon-lastfm:hover{
   color: #c3000d;
 }
 
 .social a .icon-spotify:hover{
   color: #7ab800;
+}
+
+.social a .icon-instagram:hover{
+  color: #7ab800;
+}
+
+.social a .icon-songkick:hover{
+  color: #F80046;
+}
+
+.social a .icon-nike:hover{
+  color: #FF3100;
+}
+
+.social a .icon-github:hover{
+  color: #999;
+}
+
+.social a .icon-instagram:hover{
+  color: #3f729b;
 }
 
 .btn{
@@ -95,12 +122,12 @@ body{
   padding-left: 75px;
 }
 
- section{
+section{
   padding: 0 <?php echo $pad ?>px;
   min-height: 100%;
 }
 
- section::after{
+section::after{
   content: ".";
   display: block;
   height: 0;
@@ -108,7 +135,7 @@ body{
   visibility: hidden;
 }
 
- section .full-width{
+section .full-width{
   margin-left: -<?php echo $pad ?>px;
   margin-right: -<?php echo $pad ?>px;
   padding-left: <?php echo $pad * 2 ?>px;
