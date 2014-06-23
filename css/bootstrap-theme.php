@@ -98,6 +98,11 @@ a.active{
   color: #3f729b;
 }
 
+.social.more-social{
+  overflow: auto;
+  height: auto;
+}
+
 .btn{
   display: block;
 }
@@ -222,6 +227,12 @@ body{
   -webkit-transition: all .25s ease-out;
   -moz-transition: all .25s ease-out;
   transition: all .25s ease-out;
+}
+
+#section-home .jumbotron{
+  -webkit-transition: height .25s ease-out;
+  -moz-transition: height .25s ease-out;
+  transition: height .25s ease-out;
 }
 
 /**

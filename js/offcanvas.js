@@ -1,5 +1,5 @@
 $(document).ready(function () {
-
+	window.section_dir = new Array();
 
 	/* http://documentcloud.github.io/underscore/#throttle */
 	throttle = function(func, wait, options) {
@@ -53,117 +53,95 @@ $(document).ready(function () {
 		var currentSection = window.location.hash;
 		var navbar = $('#navbar');
 		var main = $('body');
-		var section_dir = new Array();
 		var autoScrolling = false;
 
 		var throttled = throttle(function(){scrolling()}, 100);
 		$(document).scroll(throttled);
 
 
-	// 	$(document).on('scroll', function (e){
 
-	// 		console.log('scrolling');
-
-	// 	//	scrolling()
-	// });
-
-$('.nav-up').click(function(e){ e.preventDefault(); nav_up() });
-$('.nav-down').click(function(e){ e.preventDefault(); nav_down() });
+		$('.nav-up').click(function(e){ e.preventDefault(); nav_up() });
+		$('.nav-down').click(function(e){ e.preventDefault(); nav_down() });
 
 
-$('.navbar a').click(function(e){
-	e.preventDefault();
-	e.stopImmediatePropagation();
+		$('.navbar a').click(function(e){
+			e.preventDefault();
+			e.stopImmediatePropagation();
 
-	scrollTo($('' + $(this).attr('href')));
-			// setTimeout(function() {
-
-			// 	$('[data-toggle=open-nav]').click();
-			// }, 550);
-
-});
-
-		// main.bind('scrollstop', function(e){
-		// 	console.log('stop');
-		// });
-
-$(document).on( "scrollstop", function( event ) { 
-	console.log('stop');
-	
-
-//	scrolling();
+			scrollTo($('' + $(this).attr('href')));
 
 
-} );
+		});
 
-/**
-* Is a Section object on screen
-*/
-var onScreen = function(section){
-	var top = $(document).scrollTop();
-	return(top >= section.offset && top <= section.offset + section.height)
-}
+		$(document).on( "scrollstop", function( event ) { 
+			console.log('stop');
 
+		} );
 
-document.onkeydown = function(e) {
-
-	e = e || window.event;
-
-	if (e.keyCode == '38') {
-		e.preventDefault();
-		e.stopImmediatePropagation();
-		nav_up();
-	}
-	else if (e.keyCode == '40') {
-		e.preventDefault();
-		e.stopImmediatePropagation();
-		nav_down();
-	}
-}
+		/* Is a Section object on screen */
+		var onScreen = function(section){
+			var top = $(document).scrollTop();
+			return(top >= section.offset && top <= section.offset + section.height)
+		}
 
 
-var setupSections = function(){
-	$('.section').each(function () {
-		var id = '#' + $(this).attr('id');
-		var newSection = new Section($(this), $(this).offset().top, $(this).height(), id )
+		document.onkeydown = function(e) {
 
-		section_dir[id.toString()] = newSection;
+			e = e || window.event;
 
-	});
-}
+			if (e.keyCode == '38') {
+				e.preventDefault();
+				e.stopImmediatePropagation();
+				nav_up();
+			}
+			else if (e.keyCode == '40') {
+				e.preventDefault();
+				e.stopImmediatePropagation();
+				nav_down();
+			}
+		}
 
-$(window).on('resizeEnd', function() {
-	updateCurrentSections();
-});
 
-var updateCurrentSections = function(){
-	for (var o in section_dir) {
-		var value = section_dir[o];
+		var setupSections = function(){
+			$('.section').each(function () {
+				var id = '#' + $(this).attr('id');
+				var newSection = new Section($(this), $(this).offset().top, $(this).height(), id )
 
-		value.height = value.section.height();
-		value.offset = value.section.offset().top;
-	}
+				section_dir[id.toString()] = newSection;
 
-}
+			});
+		}
 
-/**
- * Scroll to a specific section
- */
- var scrollTo = function (section) {
- 	autoScrolling = true;
- 	var distance = section.offset().top;
+		$(window).on('resizeEnd', function() {
+			updateCurrentSections();
+		});
 
- 	console.log(distance);
- 	main.animate({
- 		scrollTop: distance
- 	}, 500);
+		var updateCurrentSections = function(){
+			for (var o in section_dir) {
+				var value = section_dir[o];
 
- 	setTimeout(function() {
- 		autoScrolling = false;
- 	}, 550);
+				value.height = value.section.height();
+				value.offset = value.section.offset().top;
+			}
 
- 	updateCurrentSection(section);
- }
+		}
+
+		/* Scroll to a specific section */
+		var scrollTo = function (section) {
+			autoScrolling = true;
+			var distance = section.offset().top;
+
+			console.log(distance);
+			main.animate({
+				scrollTop: distance
+			}, 500);
+
+			setTimeout(function() {
+				autoScrolling = false;
+			}, 550);
+
+			updateCurrentSection(section);
+		}
 
 		/**
 		* What happens when scrolling
@@ -245,11 +223,33 @@ var updateCurrentSections = function(){
 
 		setupSections();
 		updateCurrentSection($('.section:first'));
-		
-
 
 	};
 
+
+/**
+* Control homepage
+*/
+var homesection = new function() {
+
+	$('#more-social-btn').click(function(){ moreSocialPress() });
+
+	var jumbo = $('#section-home .jumbotron');
+	var social = $('#section-home .social');
+
+	var moreSocialPress = function(){
+		console.log('more social');
+
+		jumbo.toggleClass('more-social');
+		social.toggleClass('more-social');
+
+
+		var h = section_dir['#section-home'].height - social.height();
+		console.log(h);
+		jumbo.css('height', h-30+'px');
+
+	}
+};
 
 });
 
