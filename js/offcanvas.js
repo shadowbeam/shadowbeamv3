@@ -246,7 +246,7 @@ var homesection = new function() {
 
 		var h = section_dir['#section-home'].height - social.height();
 		console.log(h);
-		jumbo.css('height', h-30+'px');
+		jumbo.css('height', h-100+'px');
 
 	}
 };

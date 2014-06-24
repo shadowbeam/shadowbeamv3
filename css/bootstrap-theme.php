@@ -166,6 +166,65 @@ section .full-width{
 }
 
 /**
+* @group Projects
+*/
+
+.preview img{
+  max-width: 100%;
+  cursor: pointer;
+}
+
+#project-previews >div{
+  margin-bottom: 25px;
+}
+
+.preview{
+  -webkit-box-shadow: rgba(0, 0, 0, 0.0588235) 0px 3px 10px 0px;
+  box-shadow: rgba(0, 0, 0, 0.0588235) 0px 3px 10px 0px;
+}
+
+.preview .bar{
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  background-color: #0e0e;
+  height: 15px;
+  background-color: #999;
+}
+
+.preview .content{
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  max-height: 265px;
+}
+
+.preview .button{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+.preview .button .btn{
+  margin-top: auto;
+  margin-bottom: auto;
+  background-color: #FFF;
+  margin-left: auto;
+  margin-right: auto;
+  display: inline-block;
+  margin-top: 25%;
+  padding: 5px 10px 5px 10px;
+  border-radius: 5px;
+}
+
+.preview .button:hover{
+  opacity: 1;
+}
+
+/**
 * @group Navigation
 */
 .sidebar{
@@ -241,7 +300,8 @@ section .full-width{
 * @group Animation
 */
 .navbar,
-body{
+body,
+a[data-toggle=open-nav]{
   -webkit-transition: all .25s ease-out;
   -moz-transition: all .25s ease-out;
   transition: all .25s ease-out;
@@ -253,10 +313,12 @@ body{
   itransiton: height .25s ease-out;
 }
 
-a[data-toggle=open-nav]{
-  -webkit-transition: all .25s ease-out;
-  -moz-transition: all .25s ease-out;
-  transition: all .25s ease-out;
+
+
+.preview .button{
+  -webkit-transition: opacity .25s ease-out;
+  -moz-transition: opacity .25s ease-out;
+  transition: opacity .25s ease-out;
 }
 
 /**
