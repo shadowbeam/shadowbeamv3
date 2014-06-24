@@ -25,16 +25,34 @@ h1{
 }
 
 a{
-  color: <?php echo $primary_color;?>
+  color: <?php echo $primary_color;?>;
+  cursor: pointer;
 }
 
 a:hover{
+  color: <?php echo $primary_color;?>;
   opacity: 0.75;
   text-decoration: underline;
 }
 
 a.active{
   text-shadow: 0 0 25px #11ABC5;
+}
+
+body.open-nav a[data-toggle=open-nav]{
+  -webkit-transform: rotate(90deg);
+
+  /* Firefox */
+  -moz-transform: rotate(90deg);
+
+  /* IE */
+  -ms-transform: rotate(90deg);
+
+  /* Opera */
+  -o-transform: rotate(90deg);
+
+  /* Internet Explorer */
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 }
 
 .social{
@@ -232,7 +250,13 @@ body{
 #section-home .jumbotron{
   -webkit-transition: height .25s ease-out;
   -moz-transition: height .25s ease-out;
-  transition: height .25s ease-out;
+  itransiton: height .25s ease-out;
+}
+
+a[data-toggle=open-nav]{
+  -webkit-transition: all .25s ease-out;
+  -moz-transition: all .25s ease-out;
+  transition: all .25s ease-out;
 }
 
 /**

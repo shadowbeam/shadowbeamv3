@@ -47,7 +47,7 @@ $(document).ready(function () {
 		$('[data-toggle=open-nav]').click(function (e) {
 			e.preventDefault();
 			$('body').toggleClass('open-nav');
-			updateCurrentSections
+			updateCurrentSections();
 		});
 
 		var currentSection = window.location.hash;
@@ -120,8 +120,8 @@ $(document).ready(function () {
 			for (var o in section_dir) {
 				var value = section_dir[o];
 
-				value.height = value.section.height();
-				value.offset = value.section.offset().top;
+				value.height = value.obj.height();
+				value.offset = value.obj.offset().top;
 			}
 
 		}
@@ -237,12 +237,12 @@ var homesection = new function() {
 	var jumbo = $('#section-home .jumbotron');
 	var social = $('#section-home .social');
 
+
 	var moreSocialPress = function(){
 		console.log('more social');
 
 		jumbo.toggleClass('more-social');
 		social.toggleClass('more-social');
-
 
 		var h = section_dir['#section-home'].height - social.height();
 		console.log(h);
