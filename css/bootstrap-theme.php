@@ -116,6 +116,11 @@ body.open-nav a[data-toggle=open-nav]{
   color: #3f729b;
 }
 
+.social a .icon-plus{
+  color: #333;
+
+}
+
 .social.more-social{
   overflow: auto;
   height: auto;
@@ -176,6 +181,7 @@ section .full-width{
 
 #project-previews >div{
   margin-bottom: 25px;
+  max-width: 400px;
 }
 
 .preview{
