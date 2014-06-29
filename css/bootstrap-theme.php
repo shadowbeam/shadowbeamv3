@@ -163,6 +163,12 @@ section::after{
   visibility: hidden;
 }
 
+
+section.one-page{
+  height: 100%;
+  overflow: hidden;
+}
+
 section .full-width{
   margin-left: -<?php echo $pad ?>px;
   margin-right: -<?php echo $pad ?>px;
@@ -427,6 +433,38 @@ section#section-home .jumbotron{
 
 #section-running #run-details .icon{
   padding-right: 15px
+}
+
+/**
+* @group Music
+*/
+
+#section-music #music-table .tr{
+  height: 30%;
+  overflow: hidden;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+#section-music #music-table .rank,
+#section-music #music-table .details
+{
+  position: absolute;
+  left: 40px;
+}
+
+
+#section-music #music-table img.artwork{
+  width: 100%;
+}
+
+#section-music #music-table .rank{
+  top: 20px;
+  font-size: 40px;
+}
+
+#section-music #music-table .details{
+  bottom: 20px;
 }
 
 /**

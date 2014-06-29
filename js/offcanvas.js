@@ -39,6 +39,8 @@ $(document).ready(function () {
 		}, 500);
 	});
 
+
+
 	/**
 	* Controls the navigation
 	*/

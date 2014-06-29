@@ -184,7 +184,7 @@
           </div>
 
           <div class="col-sm-4">
-          <i class='icon icon-flip'></i>
+            <i class='icon icon-flip'></i>
             <span class="distance">--:--</span>
           </div>
 
@@ -192,11 +192,13 @@
 
       </section>
 
-      <section id="section-music" class='section'>
+      <section id="section-music" class='section one-page'>
         <div class="jumbotron full-width">
           <h1>Music</h1>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus</p>
+          <p>Artists I've been listening to this past week, powered by <a href="http://www.last.fm">Last.fm</a></p>
+          
         </div>
+        <div id="music-table" class="body"></div>
 
       </section>
 
@@ -219,10 +221,11 @@
 
       <script src="js/offcanvas.js"></script>
       <script src="js/special-scroll.js"></script>
-      <script src="http://maps.google.com/maps/api/js?key=AIzaSyBBW7JQh1bIBEgmF1a7vaa4F8VXIAYvdto&sensor=true"></script>
-      <script src="js/nike.js"></script>
+<!--       <script src="http://maps.google.com/maps/api/js?key=AIzaSyBBW7JQh1bIBEgmF1a7vaa4F8VXIAYvdto&sensor=true"></script>
+-->      <!-- <script src="js/nike.js"></script> -->
+<script src="js/last-fm.js"></script>
 
 
 
-    </body>
-    </html>
+</body>
+</html>
