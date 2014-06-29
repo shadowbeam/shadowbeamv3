@@ -402,6 +402,33 @@ section#section-home .jumbotron{
   background-color: <?php echo $primary_color;?>
 }
 
+/*
+* @group Running
+*/
+
+#section-running #run-details{
+  font-size: 40px;
+  text-align: center;
+}
+
+#section-running #run-details span.distance:after {
+  content: " km";
+}
+
+#section-running #date{
+  text-align: center;
+  font-size: 30px;
+}
+
+#section-running #run-details span.distance:after {
+  content: " km";
+}
+
+
+#section-running #run-details .icon{
+  padding-right: 15px
+}
+
 /**
 * Mobile
 */

@@ -154,9 +154,15 @@ class NikePlusPHP {
 				}
 			}
 		}
-		krsort($this->activities);
+		#krsort($this->activities);
+		#krsort($this->activities);
+		usort($this->activities, function($b, $a) {
+    		return strtotime($a->startTimeUtc) - strtotime($b->startTimeUtc);
+		});
 		return $this->activities;
 	}
+
+
 
 	/**
 	 * allTime()
@@ -193,6 +199,7 @@ class NikePlusPHP {
 		$activities = $this->activities();
 		return $this->activity(reset($activities)->activityId);
 	}
+
 
 	/**
 	 * firstActivity()

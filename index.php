@@ -11,7 +11,7 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/bootstrap-theme.php" rel="stylesheet">
 
-  <link rel="stylesheet" href="http://i.icomoon.io/public/temp/b68054dcac/ShadowbeamV3/style.css">
+  <link rel="stylesheet" href="http://i.icomoon.io/public/temp/0ee1556f14/ShadowbeamV3/style.css">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -83,15 +83,15 @@
 
 
 
-      <div class="col-xs-6 col-sm-2"> 
+       <div class="col-xs-6 col-sm-2"> 
         <a href="#"><span class='icon-github'></span></a>
       </div>
 
-           <div class="col-xs-6 col-sm-2">
+      <div class="col-xs-6 col-sm-2">
         <a href="https://twitter.com/shadowbeam_"><span class='icon-twitter'></span></a>
       </div>
 
-       <div class="col-xs-6 col-sm-2"> 
+      <div class="col-xs-6 col-sm-2"> 
         <a href="https://secure-nikeplus.nike.com/plus/profile/shadowbeam/"><span class='icon-nike'></span></a>
       </div>
 
@@ -167,7 +167,28 @@
           <p>I enjoy keeping fit by running with my iPhone and nike+</p>
         </div>
 
+        <div id="date"></div>
+
         <div id="map"></div>
+
+        <div id="run-details" class="row">
+
+          <div class="col-sm-4">
+            <i class='icon icon-gauge'></i>
+            <span class="avg-pace">--'--"</span>
+          </div>
+
+          <div class="col-sm-4">
+            <i class='icon icon-stopwatch'></i>
+            <span class="duration">--:--</span>
+          </div>
+
+          <div class="col-sm-4">
+          <i class='icon icon-flip'></i>
+            <span class="distance">--:--</span>
+          </div>
+
+        </div>
 
       </section>
 

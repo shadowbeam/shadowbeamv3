@@ -10,7 +10,15 @@ $n = new NikePlusPHP('a.watson91@btinternet.com', 'usp5libV');
 
 
 $mostRecentActivity = $n->mostRecentActivity();
+//var_dump($mostRecentActivity);
+
 $coords = $mostRecentActivity->activity->geo;
+
+$coords->avgPace = $n->calculatePace($mostRecentActivity->activity->duration, $mostRecentActivity->activity->distance);
+$coords->duration = $n->formatDuration($mostRecentActivity->activity->duration);
+$coords->distance = $mostRecentActivity->activity->distance;
+$date = new DateTime($mostRecentActivity->activity->startTimeUtc);
+$coords->date = $date->format('jS F Y \a\t g:i a');
 
 echo json_encode($coords);
 
