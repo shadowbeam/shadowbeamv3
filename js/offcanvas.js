@@ -112,6 +112,8 @@ $(document).ready(function () {
 				section_dir[id.toString()] = newSection;
 
 			});
+
+			section_dir['#section-music'].init = musicsection.init;
 		}
 
 		$(window).on('resizeEnd', function() {
@@ -157,6 +159,7 @@ $(document).ready(function () {
 
 					if(value.id != currentSection && onScreen(value)){
 						updateCurrentSection(value.obj);
+						value.init();
 						return false;
 					}
 				}
@@ -209,6 +212,7 @@ $(document).ready(function () {
 			currentSection = '#' + section.attr('id');
 			history.replaceState(null, null, currentSection);
 			refreshNavbar(currentSection);
+
 		}
 
 		
@@ -221,6 +225,7 @@ $(document).ready(function () {
 			this.offset = offset;
 			this.height = height;
 			this.id = id;
+			this.init = function(){};
 		}
 
 		setupSections();

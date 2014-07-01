@@ -9,12 +9,6 @@ var musicsection = new function() {
 
     var buffer = "";
 
-
-    /* Control one page sizes*/
-    $(window).on('resizeEnd', function() {
-        resizeArtwork();
-    });
-
     var resizeArtwork = function(){
         console.log("Resize Artwork Tiles");
 
@@ -25,7 +19,7 @@ var musicsection = new function() {
         table.height(h);
     }
 
-    var init = function(){
+    init = function(){
         var url = "http://ws.audioscrobbler.com/2.0/?method=user.gettopartists&user=shadowbeam&api_key=c4d61c99dc3459b1c877d62bbfa5e7b2&limit=9&period=7day&format=json";
 
         var jqxhr = $.getJSON(url, function(data) { parseArtists(data) })
@@ -34,7 +28,13 @@ var musicsection = new function() {
             table.append(buffer);
             resizeArtwork();
         });
+
+        
+        $(window).on('resizeEnd', function() {
+            resizeArtwork();
+        });
     }
+
 
     var parseArtists = function(data){
         $.each(data.topartists.artist, function(i,artist){
@@ -68,7 +68,10 @@ var musicsection = new function() {
         return null; 
     }
 
-    init();
+    return {
+        init: init
+    };
+
 }
 
 
