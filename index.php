@@ -215,17 +215,13 @@
 
       <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-
+      <script src="js/nike.js"></script>
+      <script src="js/last-fm.js"></script>
       <!-- Include all compiled plugins (below), or include individual files as needed -->
       <script src="js/bootstrap.min.js"></script>
+      <script src="js/special-scroll.js"></script>
 
       <script src="js/offcanvas.js"></script>
-      <script src="js/special-scroll.js"></script>
-<!--       <script src="http://maps.google.com/maps/api/js?key=AIzaSyBBW7JQh1bIBEgmF1a7vaa4F8VXIAYvdto&sensor=true"></script>
--->      <!-- <script src="js/nike.js"></script> -->
-<script src="js/last-fm.js"></script>
 
-
-
-</body>
-</html>
+    </body>
+    </html>

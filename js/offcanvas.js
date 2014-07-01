@@ -114,6 +114,7 @@ $(document).ready(function () {
 			});
 
 			section_dir['#section-music'].init = musicsection.init;
+			section_dir['#section-running'].init = runningsection.init;
 		}
 
 		$(window).on('resizeEnd', function() {
