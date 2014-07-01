@@ -16,7 +16,12 @@ var musicsection = new function() {
     });
 
     var resizeArtwork = function(){
-        var h = section_dir['#section-music'].height - section_dir['#section-music'].obj.find('.jumbotron').height() - 50;
+        console.log("Resize Artwork Tiles");
+
+        var s = section_dir['#section-music'];
+        var j = s.obj.find('.jumbotron');
+
+        var h = s.height - j.outerHeight();
         table.height(h);
     }
 
