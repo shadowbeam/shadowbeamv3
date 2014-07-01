@@ -160,7 +160,11 @@ $(document).ready(function () {
 
 					if(value.id != currentSection && onScreen(value)){
 						updateCurrentSection(value.obj);
-						value.init();
+						if(!value.loaded){
+							value.init();
+							value.loaded.true;
+						}
+						
 						return false;
 					}
 				}
@@ -214,6 +218,7 @@ $(document).ready(function () {
 			history.replaceState(null, null, currentSection);
 			refreshNavbar(currentSection);
 
+
 		}
 
 		
@@ -227,6 +232,7 @@ $(document).ready(function () {
 			this.height = height;
 			this.id = id;
 			this.init = function(){};
+			this.loaded = false;
 		}
 
 		setupSections();

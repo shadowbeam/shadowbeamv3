@@ -19,8 +19,6 @@ var runningsection = new function() {
 
 
 
-
-
   var setupMap = function(){
     var latlong = gps.coordinate.split(',');
 
