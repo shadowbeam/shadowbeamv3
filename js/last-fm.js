@@ -21,7 +21,7 @@ var musicsection = new function() {
         var s = section_dir['#section-music'];
         var j = s.obj.find('.jumbotron');
 
-        var h = s.height - j.outerHeight();
+        var h = s.height - j.outerHeight(true);
         table.height(h);
     }
 

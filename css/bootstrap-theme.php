@@ -440,7 +440,7 @@ section#section-home .jumbotron{
 */
 
 #section-music #music-table .tr{
-  height: 32%;
+  height: 33.33333%;
   overflow: hidden;
   padding-left: 0;
   padding-right: 0;
@@ -556,7 +556,9 @@ section#section-home .jumbotron{
     width:  100%;
   }
 
-
+  section.one-page{
+    overflow: visible;!important;
+  }
 
 
 }
