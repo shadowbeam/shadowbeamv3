@@ -325,13 +325,13 @@ a[data-toggle=open-nav]{
   itransiton: height .25s ease-out;
 }
 
-
-
-.preview .button{
+.preview .button,
+#section-music #music-table .tr img{
   -webkit-transition: opacity .25s ease-out;
   -moz-transition: opacity .25s ease-out;
   transition: opacity .25s ease-out;
 }
+
 
 /**
 * @group Open Sidebar
@@ -440,10 +440,32 @@ section#section-home .jumbotron{
 */
 
 #section-music #music-table .tr{
-  height: 30%;
+  height: 32%;
   overflow: hidden;
   padding-left: 0;
   padding-right: 0;
+  background-color: #000;
+  text-shadow: 0px 1px 1px #000;
+}
+
+
+#section-music #music-table .tr img{
+  opacity: 0.25;
+}
+
+#section-music #music-table .tr img:hover{
+  opacity: 1;
+}
+
+#section-music #music-table .artist a{
+  font-size: 25px;
+}
+
+#section-music #music-table .count{
+ color: #A8A8A8;
+}
+#section-music #music-table .rank{
+  font-size: 40px;
 }
 
 #section-music #music-table .rank,
