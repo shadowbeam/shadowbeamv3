@@ -20,26 +20,28 @@ var musicsection = new function() {
     }
 
     init = function(){
-        var url = "http://ws.audioscrobbler.com/2.0/?method=user.gettopartists&user=shadowbeam&api_key=c4d61c99dc3459b1c877d62bbfa5e7b2&limit=9&period=7day&format=json";
+     section_dir['#section-music'].obj.append(spinner.clone())
+     var url = "http://ws.audioscrobbler.com/2.0/?method=user.gettopartists&user=shadowbeam&api_key=c4d61c99dc3459b1c877d62bbfa5e7b2&limit=9&period=7day&format=json";
 
-        var jqxhr = $.getJSON(url, function(data) { parseArtists(data) })
+     var jqxhr = $.getJSON(url, function(data) { parseArtists(data) })
 
-        .always(function() {
-            table.append(buffer);
-            resizeArtwork();
-        });
-
-        
-        $(window).on('resizeEnd', function() {
-            resizeArtwork();
-        });
-    }
+     .always(function() {
+        table.append(buffer);
+        resizeArtwork();
+        section_dir['#section-music'].obj.find('.spinner').remove();
+    });
 
 
-    var parseArtists = function(data){
-        $.each(data.topartists.artist, function(i,artist){
+     $(window).on('resizeEnd', function() {
+        resizeArtwork();
+    });
+ }
 
-            var found = findUrl(artist.image, "mega");
+
+ var parseArtists = function(data){
+    $.each(data.topartists.artist, function(i,artist){
+
+        var found = findUrl(artist.image, "mega");
            // buffer+= '<div id="img-' + i +  '" class="td imgwrap med" style="background-image:url(' + found + ')">';
            buffer+= '<div class="tr col-sm-4"><img class="artwork" src="' + found + '"/>';
            buffer += "<div class='td rank'>" + artist['@attr'].rank;
@@ -47,30 +49,30 @@ var musicsection = new function() {
            buffer+= "<br><span class='count'> Played "+ artist.playcount +" times</span></div></div></div>";
 
        });
-    }
+}
 
-    var findUrl = function(image, size) {
-        var n, entry;
+var findUrl = function(image, size) {
+    var n, entry;
 
-        if(typeof image == "undefined")
-            return null;
-        
-        else{
+    if(typeof image == "undefined")
+        return null;
 
-            for (n = 0; n < image.length; ++n) {
-                entry = image[n];
+    else{
 
-                if (entry.size == size) {  
-                    return entry["#text"]; 
-                }
+        for (n = 0; n < image.length; ++n) {
+            entry = image[n];
+
+            if (entry.size == size) {  
+                return entry["#text"]; 
             }
         }
-        return null; 
     }
+    return null; 
+}
 
-    return {
-        init: init
-    };
+return {
+    init: init
+};
 
 }
 

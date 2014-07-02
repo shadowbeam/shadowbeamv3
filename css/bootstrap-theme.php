@@ -40,8 +40,11 @@ a.active{
 }
 
 .spinner{
-  font-size: 40px;
+  font-size: 70px;
   position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1000000!important;
 
 }
 
@@ -159,6 +162,7 @@ body{
 section{
   padding: 0 <?php echo $pad ?>px;
   min-height: 100%;
+  position: relative;
 }
 
 section::after{
