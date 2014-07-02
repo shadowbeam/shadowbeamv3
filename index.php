@@ -47,7 +47,7 @@
     </div><!-- /.sidebar -->
 
 
-    <section id="section-home" class='section'>
+    <section id="section-home" class='section one-page'>
 
       <div class="jumbotron full-width">
         <h1>Allan Watson</h1>

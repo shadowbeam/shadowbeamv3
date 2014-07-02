@@ -260,7 +260,7 @@ section .full-width{
 }
 
 .sidebar a{
-  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.77);
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.36);
 
 }
 
@@ -296,6 +296,7 @@ section .full-width{
   top: 0px;
   z-index: 1000;
   box-shadow: #000 0px 0px 20px -3px;
+
 }
 
 .navbar a.list-group-item{
@@ -303,6 +304,7 @@ section .full-width{
   margin: 15px 0 15px 0;
   font-size: 25px;
   opacity: 0.5;
+  font-size: 20px;
 }
 
 .navbar a.list-group-item.active{
@@ -311,6 +313,8 @@ section .full-width{
 
 .navbar a span.glyphicon{
   margin-right: 10px;
+  font-size: 25px;
+  padding-right: 10px;
 }
 
 #section2{
@@ -586,13 +590,15 @@ section#section-home .jumbotron{
 
   body{
     padding-left: 0;
+  }
+
+  section{
     padding-top: 50px;
   }
 
 
-  body.open-nav #main {
-    padding-left: 0px;
-    padding-top: 500px;
+  body.open-nav  {
+    padding-left: 0px!important;
   }
 
   body.open-nav .navbar {
@@ -628,4 +634,4 @@ section#section-home .jumbotron{
   }
 
 
-  }
+}

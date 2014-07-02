@@ -1,5 +1,7 @@
 var spinner = $('<div class="icon-spinner spinner"></div>');
 
+var mq = window.matchMedia( "(max-width: 768px)" );
+
 $(document).ready(function () {
 	window.section_dir = new Array();
 
@@ -65,11 +67,8 @@ $(document).ready(function () {
 		var throttled = throttle(function(){scrolling()}, 100);
 		$(document).scroll(throttled);
 
-
-
 		$('.nav-up').click(function(e){ e.preventDefault(); nav_up() });
 		$('.nav-down').click(function(e){ e.preventDefault(); nav_down() });
-
 
 		$('.navbar a').click(function(e){
 			e.preventDefault();
