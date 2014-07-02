@@ -610,8 +610,22 @@ section#section-home .jumbotron{
   }
 
   section.one-page{
-    overflow: visible;!important;
+    overflow: visible!important;
+    height: auto!important;
+  }
+
+  #section-music #music-table{
+    height: auto!important;
   }
 
 
-}
+  #section-music #music-table .tr{
+    max-height: 250px;
+  }
+
+  #section-running #run-details {
+    font-size: 22px;
+  }
+
+
+  }

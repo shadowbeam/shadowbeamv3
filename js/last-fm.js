@@ -17,6 +17,7 @@ var musicsection = new function() {
 
         var h = s.height - j.outerHeight(true);
         table.height(h);
+        
     }
 
     init = function(){
