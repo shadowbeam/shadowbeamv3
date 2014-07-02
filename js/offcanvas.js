@@ -124,6 +124,7 @@ $(document).ready(function () {
 
 		$(window).on('resizeEnd', function() {
 			updateCurrentSections();
+			scrollTo(section_dir[currentSection].obj, false);
 		});
 
 		var updateCurrentSections = function(){
@@ -137,18 +138,25 @@ $(document).ready(function () {
 		}
 
 		/* Scroll to a specific section */
-		var scrollTo = function (section) {
+		var scrollTo = function (section, smooth) {
+			smooth = (typeof smooth === "undefined") ? true: smooth;
+
 			autoScrolling = true;
 			var distance = section.offset().top;
+			var d = 500;
+
+			if(!smooth){
+				var d = 0;
+			}
 
 			console.log(distance);
 			main.animate({
 				scrollTop: distance
-			}, 500);
+			}, d);
 
 			setTimeout(function() {
 				autoScrolling = false;
-			}, 550);
+			}, d+50);
 
 			updateCurrentSection(section);
 		}
