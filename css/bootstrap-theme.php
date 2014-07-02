@@ -535,6 +535,7 @@ section#section-home .jumbotron{
 
 #section-music #music-table img.artwork{
   width: 100%;
+  min-height: 100%;
 }
 
 #section-music #music-table .rank{

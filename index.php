@@ -204,7 +204,21 @@
       <section id="section-gigs" class='section'>
         <div class="jumbotron full-width">
           <h1>Gigs</h1>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus</p>
+          <p>I try to always have a concert planned. Powered by <a alt='Songkick' title='Songkick' href='http://www.songkick.com'>Songkick</a></p>
+        </div>
+
+        <div class="section-body">
+
+          <h2>Upcoming Concerts</h2>
+          <div class="upcoming">
+
+          </div>
+
+          <h2>Past Concerts</h2>
+          <div class="past">
+
+          </div>
+
         </div>
 
       </section>
@@ -216,6 +230,7 @@
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
       <script src="js/nike.js"></script>
       <script src="js/last-fm.js"></script>x
+      <script src="js/gigs.js"></script>x
       <!-- Include all compiled plugins (below), or include individual files as needed -->
       <script src="js/bootstrap.min.js"></script>
       <script src="js/special-scroll.js"></script>

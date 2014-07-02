@@ -70,6 +70,7 @@ $(document).ready(function () {
 		$('.nav-up').click(function(e){ e.preventDefault(); nav_up() });
 		$('.nav-down').click(function(e){ e.preventDefault(); nav_down() });
 
+
 		$('.navbar a').click(function(e){
 			e.preventDefault();
 			e.stopImmediatePropagation();
@@ -119,6 +120,7 @@ $(document).ready(function () {
 
 			section_dir['#section-music'].init = musicsection.init;
 			section_dir['#section-running'].init = runningsection.init;
+			section_dir['#section-gigs'].init = gigsection.init;
 		}
 
 		$(window).on('resizeEnd', function() {
