@@ -39,6 +39,12 @@ a.active{
   text-shadow: 0 0 25px #11ABC5;
 }
 
+.spinner{
+  font-size: 40px;
+  position: absolute;
+
+}
+
 body.open-nav a[data-toggle=open-nav]{
   -webkit-transform: rotate(90deg);
 
@@ -330,6 +336,49 @@ a[data-toggle=open-nav]{
   -webkit-transition: opacity .25s ease-out;
   -moz-transition: opacity .25s ease-out;
   transition: opacity .25s ease-out;
+}
+
+.spinner {
+  -webkit-animation: spin 2s infinite linear;
+  -moz-animation: spin 2s infinite linear;
+  -o-animation: spin 2s infinite linear;
+  animation: spin 2s infinite linear;
+}
+
+
+@-moz-keyframes spin {
+  0% {
+    -moz-transform: rotate(0deg);
+  }
+  100% {
+    -moz-transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@-o-keyframes spin {
+  0% {
+    -o-transform: rotate(0deg);
+  }
+  100% {
+    -o-transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
 }
 
 

@@ -11,8 +11,7 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/bootstrap-theme.php" rel="stylesheet">
 
-  <link rel="stylesheet" href="http://i.icomoon.io/public/temp/0ee1556f14/ShadowbeamV3/style.css">
-
+  <link rel="stylesheet" href="http://i.icomoon.io/public/temp/0488ebdbf5/ShadowbeamV3/style.css">
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -173,17 +172,17 @@
 
         <div id="run-details" class="row">
 
-          <div class="col-sm-4">
+          <div class="col-xs-4">
             <i class='icon icon-gauge'></i>
             <span class="avg-pace">--'--"</span>
           </div>
 
-          <div class="col-sm-4">
+          <div class="col-xs-4">
             <i class='icon icon-stopwatch'></i>
             <span class="duration">--:--</span>
           </div>
 
-          <div class="col-sm-4">
+          <div class="col-xs-4">
             <i class='icon icon-flip'></i>
             <span class="distance">--:--</span>
           </div>
@@ -216,7 +215,7 @@
       <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
       <script src="js/nike.js"></script>
-      <script src="js/last-fm.js"></script>
+      <script src="js/last-fm.js"></script>x
       <!-- Include all compiled plugins (below), or include individual files as needed -->
       <script src="js/bootstrap.min.js"></script>
       <script src="js/special-scroll.js"></script>

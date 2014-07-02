@@ -41,7 +41,7 @@ var musicsection = new function() {
 
             var found = findUrl(artist.image, "mega");
            // buffer+= '<div id="img-' + i +  '" class="td imgwrap med" style="background-image:url(' + found + ')">';
-           buffer+= '<div class="tr col-md-4"><img class="artwork" src="' + found + '"/>';
+           buffer+= '<div class="tr col-sm-4"><img class="artwork" src="' + found + '"/>';
            buffer += "<div class='td rank'>" + artist['@attr'].rank;
            buffer += "</div><div class='td details'><span class='artist'><a href='"+ artist.url + "'>" + artist.name +"  </a></span>";
            buffer+= "<br><span class='count'> Played "+ artist.playcount +" times</span></div></div></div>";

@@ -15,6 +15,10 @@ var runningsection = new function() {
     script.type = 'text/javascript';
     script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyBBW7JQh1bIBEgmF1a7vaa4F8VXIAYvdto&sensor=true&callback=runningsection.fetchGPS';
     document.body.appendChild(script);
+
+    section.append(spinner.clone());
+
+
   }
 
 
@@ -26,9 +30,15 @@ var runningsection = new function() {
       center: new google.maps.LatLng(latlong[0], latlong[1]),
       zoom: 14,
       zoomControl: false,
+      
     };
 
     var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+    google.maps.event.addListenerOnce(map, 'idle', function(){
+      console.log('Loaded map');
+      section.find('.spinner').remove();
+    });
 
     var runPathCoords = [];
 
@@ -46,6 +56,7 @@ var runningsection = new function() {
     });
 
     runPath.setMap(map);
+
   }
 
 
@@ -55,17 +66,10 @@ var runningsection = new function() {
       gps = data;
     })
     .done(function() {
-      console.log( "second success" );
-    })
-    .fail(function() {
-      console.log( "error" );
-    })
-    .always(function() {
-      console.log( "complete" );
       setupMap();
       fetchDetails();
+    })
 
-    });
   }
 
   var fetchDetails = function(){

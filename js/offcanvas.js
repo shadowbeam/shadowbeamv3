@@ -1,5 +1,8 @@
+var spinner = $('<div class="icon-spinner spinner"></div>');
+
 $(document).ready(function () {
 	window.section_dir = new Array();
+
 
 	/* http://documentcloud.github.io/underscore/#throttle */
 	throttle = function(func, wait, options) {
@@ -39,6 +42,8 @@ $(document).ready(function () {
 		}, 500);
 	});
 
+
+	
 
 
 	/**
@@ -160,11 +165,7 @@ $(document).ready(function () {
 
 					if(value.id != currentSection && onScreen(value)){
 						updateCurrentSection(value.obj);
-						if(!value.loaded){
-							value.init();
-							value.loaded.true;
-						}
-						
+
 						return false;
 					}
 				}
@@ -218,6 +219,12 @@ $(document).ready(function () {
 			history.replaceState(null, null, currentSection);
 			refreshNavbar(currentSection);
 
+			if(!section_dir[currentSection].loaded){
+				section_dir[currentSection].init();
+				section_dir[currentSection].loaded = true;
+			}
+
+			console.log(currentSection);
 
 		}
 
