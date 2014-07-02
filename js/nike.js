@@ -29,8 +29,9 @@ var runningsection = new function() {
     var mapOptions = {
       center: new google.maps.LatLng(latlong[0], latlong[1]),
       zoom: 14,
-      zoomControl: false,
-      
+      streetViewControl: false,
+      scrollwheel: false
+
     };
 
     var map = new google.maps.Map(document.getElementById("map"), mapOptions);
