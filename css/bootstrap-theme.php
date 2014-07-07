@@ -554,11 +554,12 @@ section#section-home .jumbotron{
 #section-gigs .event img{
   border-radius: 200px;
   width: 100%;
+  min-height: 225px;
 }
 
 #section-gigs .event{
   max-width: 300px;
-  padding: 0;
+
   text-align: center;
 }
 
@@ -569,11 +570,12 @@ section#section-home .jumbotron{
 #section-gigs .event .artist{
   position: absolute;
   top: 50%;
-  font-size: 25px;
+  font-size: 21px;
   display: block;
   text-align: center;
   width: 100%;
   text-shadow: 0px 1px 1px #000;
+  background-color: rgba(255, 255, 255, 0.75);
 }
 
 /**
