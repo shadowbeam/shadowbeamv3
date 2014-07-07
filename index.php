@@ -209,16 +209,11 @@
 
         <div class="section-body">
 
-          <h2>Upcoming Concerts</h2>
           <div class="upcoming">
 
           </div>
 
-          <h2>Past Concerts</h2>
-          <div class="past">
-
-          </div>
-
+          
         </div>
 
       </section>
@@ -229,8 +224,8 @@
       <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
       <script src="js/nike.js"></script>
-      <script src="js/last-fm.js"></script>x
-      <script src="js/gigs.js"></script>x
+      <script src="js/last-fm.js"></script>
+      <script src="js/gigs.js"></script>
       <!-- Include all compiled plugins (below), or include individual files as needed -->
       <script src="js/bootstrap.min.js"></script>
       <script src="js/special-scroll.js"></script>

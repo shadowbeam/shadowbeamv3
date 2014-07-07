@@ -548,6 +548,35 @@ section#section-home .jumbotron{
 }
 
 /**
+* @group Gigs
+*/
+
+#section-gigs .event img{
+  border-radius: 200px;
+  width: 100%;
+}
+
+#section-gigs .event{
+  max-width: 300px;
+  padding: 0;
+  text-align: center;
+}
+
+#section-gigs .event .date{
+  display: block;
+}
+
+#section-gigs .event .artist{
+  position: absolute;
+  top: 50%;
+  font-size: 25px;
+  display: block;
+  text-align: center;
+  width: 100%;
+  text-shadow: 0px 1px 1px #000;
+}
+
+/**
 * Mobile
 */
 
