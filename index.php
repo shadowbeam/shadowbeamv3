@@ -140,7 +140,7 @@
      <?php $files = glob('img/preview/*.{jpg,png,gif}', GLOB_BRACE);
      foreach($files as $file) {?>
 
-     <div class="col-6 col-sm-6 col-lg-4">
+     <div class="col-xs-12 col-sm-4 col-lg-3">
 
       <div class="preview">
         <div class="bar"></div>
