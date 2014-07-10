@@ -73,16 +73,28 @@ function total_articles() {
 
 /*======================*/
 
+/**
+* Retrieve the introduction paragraph for a section
+*/
 function section_intro(){
 	echo meta('section_intro');
 }
 
+/**
+* Determine whether to hide or show a jumbotron
+* @return bool
+*/
 function hide_jumbo(){
 	$hide = meta('hide_jumbo');
 	return $hide == "true";
 
 }
 
+/**
+* Retrieve meta text for a page
+* @param string
+* @return string
+*/
 function meta($key){
 	$meta = Extend::field('page', $key, menu_id());
 	if(isset($meta->value->text)){
@@ -90,4 +102,12 @@ function meta($key){
 	}else{
 		return "";
 	}
+}
+
+/**
+* Retrieve page slug
+*/
+function this_page_slug(){
+	$page = Registry::get('menu_item');
+	echo $page->slug;
 }
