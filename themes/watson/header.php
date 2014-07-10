@@ -63,9 +63,8 @@
 
 				<?php while(menu_items()): ?>
 
-					<a href="#<?php echo menu_url();?>" class="list-group-item <?php echo (menu_active() ? 'class="active"' : ''); ?>" title="<?php echo menu_title();?>" >
-						<span class="<?php page_icon();?>"></span>
-						<?php echo menu_name(); ?>
+					<a href="#section-<?php echo this_page_slug();?>" class="list-group-item <?php echo (menu_active() ? 'class="active"' : ''); ?>" title="<?php echo menu_title();?>" >
+						<span class="<?php page_icon();?>"></span><?php echo menu_name();?>
 					</a>
 
 				<?php endwhile; ?>
