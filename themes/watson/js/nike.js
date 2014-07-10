@@ -1,13 +1,14 @@
-
+$(document).ready(function () {
 
 /**
 * Control running
 */
-var runningsection = new function() {
+ runningsection = new function() {
 
   var gps;
   var section = $('#section-running');
   var map = document.getElementById("map");
+
 
   var init = function(){
 
@@ -18,9 +19,9 @@ var runningsection = new function() {
 
     section.append(spinner.clone());
 
-
   }
 
+  section_dir['#section-running'].init = init;
 
 
   var setupMap = function(){
@@ -63,7 +64,7 @@ var runningsection = new function() {
 
   var fetchGPS = function(){
 
-    var jqxhr = $.getJSON('php/running.php', function(data) {
+    var jqxhr = $.getJSON('themes/watson/php/running.php', function(data) {
       gps = data;
     })
     .done(function() {
@@ -91,3 +92,4 @@ var runningsection = new function() {
 
 }
 
+});

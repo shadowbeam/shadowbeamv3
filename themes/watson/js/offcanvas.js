@@ -115,12 +115,7 @@ $(document).ready(function () {
 				var newSection = new Section($(this), $(this).offset().top, $(this).height(), id )
 
 				section_dir[id.toString()] = newSection;
-
 			});
-
-			section_dir['#section-music'].init = musicsection.init;
-			section_dir['#section-running'].init = runningsection.init;
-			section_dir['#section-gigs'].init = gigsection.init;
 		}
 
 		$(window).on('resizeEnd', function() {
@@ -262,7 +257,10 @@ $(document).ready(function () {
 */
 var homesection = new function() {
 
-	$('#more-social-btn').click(function(){ moreSocialPress() });
+	$('#more-social-btn').click(function(e){
+		e.preventDefault();
+		moreSocialPress() 
+	});
 
 	var jumbo = $('#section-home .jumbotron');
 	var social = $('#section-home .social');

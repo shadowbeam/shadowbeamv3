@@ -1,4 +1,4 @@
-
+$(document).ready(function () {
 
 
 /**
@@ -6,7 +6,7 @@
 */
 var gigsection = new function() {
 
-    $.getScript( "js/moment.min.js" )
+    $.getScript( "themes/watson/js/moment.min.js" )
     .done(function( script, textStatus ) {
         console.log( textStatus );
     });
@@ -15,6 +15,9 @@ var gigsection = new function() {
     init = function(){
         fetchGigs();
     }
+
+    section_dir['#section-gigs'].init = init;
+
 
     fetchGigs = function(){
 
@@ -72,4 +75,5 @@ var gigsection = new function() {
 }
 
 
+});
 
