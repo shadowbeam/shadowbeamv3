@@ -8,8 +8,7 @@
 	<link rel="stylesheet" href="<?php echo theme_url('css/font.css'); ?>">
 	<link rel="stylesheet" href="<?php echo theme_url('css/bootstrap.min.css'); ?>">
 	<link rel="stylesheet" href="<?php echo theme_url('css/bootstrap-theme.php'); ?>">
-	<link rel="stylesheet" href="http://i.icomoon.io/public/temp/0488ebdbf5/ShadowbeamV3/style.css">
-	
+	<link rel="stylesheet" href="http://i.icomoon.io/public/temp/6e3c644d60/ShadowbeamV3/style.css">	
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -65,26 +64,15 @@
 				<?php while(menu_items()): ?>
 
 					<a href="#<?php echo menu_url();?>" class="list-group-item <?php echo (menu_active() ? 'class="active"' : ''); ?>" title="<?php echo menu_title();?>" >
-						<span class="glyphicon glyphicon-home"></span>
+						<span class="<?php page_icon();?>"></span>
 						<?php echo menu_name(); ?>
 					</a>
 
 				<?php endwhile; ?>
 
 				
-		</nav>
-	<?php endif; ?>
+			</nav>
+		<?php endif; ?>
 
-
-</div><!-- /.sidebar -->
-
-<!-- 
-	
-	<a href="#section-projects" class="list-group-item"><span class="glyphicon glyphicon-pencil"></span>Projects</a>
-	<a href="#section-running" class="list-group-item"><span class="glyphicon glyphicon-time"></span>Running</a>
-	<a href="#section-music" class="list-group-item"><span class="glyphicon glyphicon-music"></span>Music</a>
-	<a href="#section-gigs" class="list-group-item"><span class="glyphicon glyphicon-volume-up"></span>Gigs</a>
-	<a href="#section-photos" class="list-group-item"><span class="glyphicon glyphicon-camera"></span>Photos</a>
-	<a href="#section-contact" class="list-group-item"><span class="glyphicon glyphicon-envelope"></span>Contact</a> -->
-
+	</div><!-- /.sidebar -->
 	

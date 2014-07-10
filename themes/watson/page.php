@@ -3,7 +3,7 @@
 
 
 <?php while(menu_items()): ?>
-	<section id="section-<?php this_page_slug(); ?>" class='section'>
+	<section id="section-<?php this_page_slug(); ?>" class='section <?php one_page();?>'>
 	<?php if(!hide_jumbo()) { ?>
 		<div class="jumbotron full-width">
 

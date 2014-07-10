@@ -16,6 +16,7 @@ body {
   line-height: 1.42857143;
   color: #333;
   background-color: #fff;
+  width:100%;
 }
 
 

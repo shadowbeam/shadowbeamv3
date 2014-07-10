@@ -59,8 +59,6 @@
         <img id="pen" class="outline hidden-sm hidden-xs" src="img/pen.png"/>
         <img id="usb" class="outline " src="img/usb.png"/>
         <img id="mouse" class="outline" src="img/mouse.png"/>
-
-
       </div>
 
       <div class="social">
@@ -109,24 +107,10 @@
       <div class="col-xs-6 col-sm-2"> 
         <a href="http://www.instagram.com/shadowbeam"><span class='icon-instagram'></span></a>
       </div>
-
-
-
-
-
-
     </div>
-
-
-
   </section><!--/section-->
 
-
-
   <section id="section-projects" class='section'>
-
-
-
     <div class="jumbotron full-width">
       <h1>Projects</h1>
       <p>Portfolio of designs, projects and websites I've worked on.</p>
@@ -143,90 +127,85 @@
         <div class="content">
           <img src="<?php echo $file; ?>"/>
           <div class="button">
-            <a class="btn" href="#">Website Name</a></div>          </div>
-
+            <a class="btn" href="#">Website Name</a>
           </div>
-
-        </div><!--/span-->
-
-        <?php }?>
-
-
-
-
-      </section><!--/section-->
-
-      <section id="section-running" class='section one-page'>
-        <div class="jumbotron full-width">
-          <h1>Running!</h1>
-          <p>I enjoy keeping fit by running with my iPhone and nike+</p>
         </div>
+      </div>
 
-        <div id="date"></div>
+    </div><!--/span-->
 
-        <div id="map"></div>
+    <?php }?>
+  </section><!--/section-->
 
-        <div id="run-details" class="row">
+  <section id="section-running" class='section one-page'>
+    <div class="jumbotron full-width">
+      <h1>Running!</h1>
+      <p>I enjoy keeping fit by running with my iPhone and nike+</p>
+    </div>
 
-          <div class="col-xs-4">
-            <i class='icon icon-gauge'></i>
-            <span class="avg-pace">--'--"</span>
-          </div>
+    <div id="date"></div>
 
-          <div class="col-xs-4">
-            <i class='icon icon-stopwatch'></i>
-            <span class="duration">--:--</span>
-          </div>
+    <div id="map"></div>
 
-          <div class="col-xs-4">
-            <i class='icon icon-flip'></i>
-            <span class="distance">--:--</span>
-          </div>
+    <div id="run-details" class="row">
 
-        </div>
+      <div class="col-xs-4">
+        <i class='icon icon-gauge'></i>
+        <span class="avg-pace">--'--"</span>
+      </div>
 
-      </section>
+      <div class="col-xs-4">
+        <i class='icon icon-stopwatch'></i>
+        <span class="duration">--:--</span>
+      </div>
 
-      <section id="section-music" class='section one-page'>
-        <div class="jumbotron full-width">
-          <h1>Music</h1>
-          <p>Artists I've been listening to this past week, powered by <a href="http://www.last.fm">Last.fm</a></p>
-          
-        </div>
-        <div id="music-table" class="body"></div>
+      <div class="col-xs-4">
+        <i class='icon icon-flip'></i>
+        <span class="distance">--:--</span>
+      </div>
 
-      </section>
+    </div>
+  </section>
 
-      <section id="section-gigs" class='section'>
-        <div class="jumbotron full-width">
-          <h1>Gigs</h1>
-          <p>I try to always have a concert planned. Powered by <a alt='Songkick' title='Songkick' href='http://www.songkick.com'>Songkick</a></p>
-        </div>
+  <section id="section-music" class='section one-page'>
+    <div class="jumbotron full-width">
+      <h1>Music</h1>
+      <p>Artists I've been listening to this past week, powered by <a href="http://www.last.fm">Last.fm</a></p>
 
-        <div class="section-body">
+    </div>
+    <div id="music-table" class="body"></div>
+  </section>
 
-          <div class="upcoming">
+  <section id="section-gigs" class='section'>
+    <div class="jumbotron full-width">
+      <h1>Gigs</h1>
+      <p>I try to always have a concert planned. Powered by <a alt='Songkick' title='Songkick' href='http://www.songkick.com'>Songkick</a></p>
+    </div>
 
-          </div>
+    <div class="section-body">
 
-          
-        </div>
+      <div class="upcoming">
 
-      </section>
-
+      </div>
 
 
+    </div>
 
-      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-      <script src="js/nike.js"></script>
-      <script src="js/last-fm.js"></script>
-      <script src="js/gigs.js"></script>
-      <!-- Include all compiled plugins (below), or include individual files as needed -->
-      <script src="js/bootstrap.min.js"></script>
-      <script src="js/special-scroll.js"></script>
+  </section>
 
-      <script src="js/offcanvas.js"></script>
 
-    </body>
-    </html>
+
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="js/nike.js"></script>
+  <script src="js/last-fm.js"></script>
+  <script src="js/gigs.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/special-scroll.js"></script>
+
+  <script src="js/offcanvas.js"></script>
+
+</body>
+</html>

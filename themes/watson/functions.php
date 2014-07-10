@@ -111,3 +111,24 @@ function this_page_slug(){
 	$page = Registry::get('menu_item');
 	echo $page->slug;
 }
+
+/**
+* Echo the page icon
+*/
+function page_icon(){
+	$icon = meta('icon');
+	if($icon == ""){
+		echo "glyphicon glyphicon-home";
+	}else{
+		echo $icon;
+	}
+}
+
+/**
+* Is the section a single page
+*/
+function one_page(){
+	if(meta('one_page') == "true"){
+		echo "one-page";
+	}
+}
