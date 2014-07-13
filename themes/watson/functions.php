@@ -77,7 +77,8 @@ function total_articles() {
 * Retrieve the introduction paragraph for a section
 */
 function section_intro(){
-	echo meta('section_intro');
+	echo meta_html('section_intro');
+	//echo $intro->value->html;
 }
 
 /**
@@ -85,9 +86,23 @@ function section_intro(){
 * @return bool
 */
 function hide_jumbo(){
-	$hide = meta('hide_jumbo');
+	$hide = meta_text('hide_jumbo');
 	return $hide == "true";
 
+}
+
+/**
+* Retrieve meta for a page
+* @param string
+* @return string
+*/
+function meta($key){
+	$meta = Extend::field('page', $key, menu_id());
+	if(isset($meta->value)){
+		return $meta->value;
+	}else{
+		return "";
+	}
 }
 
 /**
@@ -95,10 +110,24 @@ function hide_jumbo(){
 * @param string
 * @return string
 */
-function meta($key){
-	$meta = Extend::field('page', $key, menu_id());
-	if(isset($meta->value->text)){
-		return $meta->value->text;
+function meta_text($key){
+	$m = meta($key);
+	if(isset($m->text)){
+		return $m->text;
+	}else{
+		return "";
+	}
+}
+
+/**
+* Retrieve meta html for a page
+* @param string
+* @return string
+*/
+function meta_html($key){
+	$m = meta($key);
+	if(isset($m->html)){
+		return $m->html;
 	}else{
 		return "";
 	}
@@ -116,7 +145,7 @@ function this_page_slug(){
 * Echo the page icon
 */
 function page_icon(){
-	$icon = meta('icon');
+	$icon = meta_text('icon');
 	if($icon == ""){
 		echo "glyphicon glyphicon-home";
 	}else{
@@ -128,7 +157,7 @@ function page_icon(){
 * Is the section a single page
 */
 function one_page(){
-	if(meta('one_page') == "true"){
+	if(meta_text('one_page') == "true"){
 		echo "one-page";
 	}
 }
