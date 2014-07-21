@@ -10,5 +10,6 @@
       <script src="<?php echo theme_url('js/nike.js'); ?>"></script>
       <script src="<?php echo theme_url('js/last-fm.js'); ?>"></script>
       <script src="<?php echo theme_url('js/gigs.js'); ?>"></script>
+      <script src="<?php echo theme_url('js/projects.js'); ?>"></script>
     </body>
     </html>

@@ -8,7 +8,8 @@
 	<link rel="stylesheet" href="<?php echo theme_url('css/font.css'); ?>">
 	<link rel="stylesheet" href="<?php echo theme_url('css/bootstrap.min.css'); ?>">
 	<link rel="stylesheet" href="<?php echo theme_url('css/bootstrap-theme.php'); ?>">
-	<link rel="stylesheet" href="http://i.icomoon.io/public/temp/6e3c644d60/ShadowbeamV3/style.css">	
+	<link rel="stylesheet" href="http://i.icomoon.io/public/temp/0a402d8156/ShadowbeamV3/style.css">
+
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
