@@ -7,7 +7,7 @@ return array(
 		'mysql' => array(
 			'driver' => 'mysql',
 			'hostname' => 'localhost',
-			'port' => 8889,
+			'port' => 3306,
 			'username' => 'root',
 			'password' => 'root',
 			'database' => 'anchor',

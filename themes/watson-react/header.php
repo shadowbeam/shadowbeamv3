@@ -8,7 +8,10 @@
 	<link rel="stylesheet" href="<?php echo theme_url('css/font.css'); ?>">
 	<link rel="stylesheet" href="<?php echo theme_url('css/bootstrap.min.css'); ?>">
 	<link rel="stylesheet" href="<?php echo theme_url('css/bootstrap-theme.css'); ?>">
-	<link rel="stylesheet" href="http://i.icomoon.io/public/temp/4203830a80/Shadowbeam/style.css">
+	<link rel="stylesheet" href="<?php echo theme_url('css/icomoon.css'); ?>">
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/react.js"></script>
 
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -16,7 +19,6 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <link rel="alternate" type="application/rss+xml" title="RSS" href="<?php echo rss_url(); ?>">
     <link rel="shortcut icon" href="<?php echo theme_url('img/favicon.png'); ?>">
 
 	<!--[if lt IE 9]>

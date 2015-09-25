@@ -1,0 +1,4 @@
+Theme name:    Watson
+Description:   A one page theme for Anchor CMS
+Author name:   Allan Watson
+Author site:   http://allanwatson.me.uk

@@ -1,7 +1,7 @@
 <?php
 
 return array(
-	'url' => '/shadowbeam',
+	'url' => '/allanwatson',
 	'index' => '',
 	'timezone' => 'Europe/London',
 	'key' => 'vNmYF75c01T3gvVOFrExhUuLrCNuoI80',
